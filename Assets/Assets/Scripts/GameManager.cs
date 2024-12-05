@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public int greenPlayerOut;
     public int yellowPlayerOut;
 
+    
+
     private void Awake()
     {
         gm = this;

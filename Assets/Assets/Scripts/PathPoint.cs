@@ -14,20 +14,25 @@ public class PathPoint : MonoBehaviour
 
     public bool AddPlayer(Players players_)
     {
-        if(playersList.Count==1)
+        if(!pathPointParent.safeHouse.Contains(this))
         {
-            string prePlayerName = playersList[0].name;
-            string curPlayerName = players_.name;
-            curPlayerName = curPlayerName.Substring(0, curPlayerName.Length - 4);
 
-            if(!prePlayerName.Contains(curPlayerName))
+
+            if (playersList.Count == 1)
             {
-                playersList[0].isReady = false;
-                reverOnStart(playersList[0]);
-                playersList[0].numberStepsAlreadyMoved = 0;
-                RemovePlayer(playersList[0]);
-                playersList.Add(players_);
-                return false;
+                string prePlayerName = playersList[0].name;
+                string curPlayerName = players_.name;
+                curPlayerName = curPlayerName.Substring(0, curPlayerName.Length - 4);
+
+                if (!prePlayerName.Contains(curPlayerName))
+                {
+                    playersList[0].isReady = false;
+                    reverOnStart(playersList[0]);
+                    playersList[0].numberStepsAlreadyMoved = 0;
+                    RemovePlayer(playersList[0]);
+                    playersList.Add(players_);
+                    return false;
+                }
             }
 
         }

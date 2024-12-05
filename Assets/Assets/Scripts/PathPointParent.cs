@@ -15,6 +15,7 @@ public class PathPointParent :  PathPoint
     public float[] position;
 
     public PathPoint[] basePoint;
+    public List<PathPoint> safeHouse;
     void Start()
     {
         
